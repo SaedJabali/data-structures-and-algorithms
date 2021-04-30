@@ -1,8 +1,6 @@
 'use strict';
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
-
 Write a function that iterates over an array of people objects
 and creates a new list of each person's full name using the array method 'map'.
 Each object will have the shape {firstName:string, lastName:string}
@@ -13,53 +11,45 @@ You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = people => {
   // Solution code here...
+  let profile = people.map(person => `${person.firstName} ${person.lastName}`);
+  return profile;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
-
 Write a function named addValues that, given an array of numbers as input, uses reduce to add the values in the array.
-
 ------------------------------------------------------------------------------------------------ */
-
 const addValues = (arr) => {
   // Solution code here...
+  let result = arr.reduce((sum, x) => sum + x, 0);
+  return result;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
-
 Write a function named addPurchases that, given an array of objects as input, uses reduce to find the total amount purchased. Each object contains the keys `item` and `purchasePrice` like the example.
-
 {
   item: 'switch'
   purchasePrice: 399
 }
-
 ------------------------------------------------------------------------------------------------ */
-
 const addPurchases = (arr) => {
   // Solution code here...
+  let total = arr.reduce((amount, price) => amount + price.purchasePrice, 0);
+  return total;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
-
 Write a function named countNumberOfElements that, given an array as input, uses reduce to count the number of elements in the array.
-
 Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
-
 const countNumberOfElements = (arr) => {
   // Solution code here...
+  let length = arr.reduce((acc, value, idx) => { return idx + 1; }, 0);
+  return length;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
-
 Write a function named returnNames that, given the Star Wars data, below, uses reduce to return an array containing the names of the characters.
 ------------------------------------------------------------------------------------------------ */
-
 let starWarsData = [{
   name: 'Luke Skywalker',
   height: '172',
@@ -78,7 +68,8 @@ let starWarsData = [{
   skin_color: 'gold',
   eye_color: 'yellow',
   birth_year: '112BBY',
-  gender: 'n/a'},
+  gender: 'n/a'
+},
 {
   name: 'R2-D2',
   height: '96',
@@ -109,21 +100,24 @@ let starWarsData = [{
   birth_year: '19BBY',
   gender: 'female'
 }];
-
 const returnNames = (arr) => {
   // Solution code here...
+  let names = arr.reduce((acc, c, idx) => {
+    acc[idx] = c.name;
+    return acc;
+  }, []);
+  return names;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
-
 Write a function named reversedString that takes in a string and returns a string with the letters in reverse order.
-
 Note: You must use reduce for this challenge. You may not use the built-in .reverse() string method.
 ------------------------------------------------------------------------------------------------ */
-
 const reversedString = (str) => {
   // Solution code here...
+  let newStr = str.split('');
+  let secStr = newStr.reduce((acc, c) => c + acc, '');
+  return secStr;
 };
 
 /* ------------------------------------------------------------------------------------------------
