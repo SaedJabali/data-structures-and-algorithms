@@ -105,10 +105,14 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 const isCapitalized = (str) => {
   // Solution code here...
-  let newArr = [];
-  let char = /^[(^a-b)]/g;
-  return newArr.push(str.match(char));
-
+  let capChar = /\b[A-Z](\w)*/g;
+  let charArr = str.match(capChar);
+  if (charArr) {
+    return charArr;
+  } else {
+    let empty = [];
+    return empty;
+  }
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
